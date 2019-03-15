@@ -12,6 +12,18 @@ func FilterInts(objToFilter []int, f func(int) bool) []int {
 	return filteredSlice
 }
 
+func FilterStrings(sliceToFilter []string, filterFunc func(string) bool) []string {
+	var filteredSlice []string
+
+	for i := 0; i < len(sliceToFilter); i++ {
+		if filterFunc(sliceToFilter[i]) {
+			filteredSlice = append(filteredSlice, sliceToFilter[i])
+		}
+	}
+
+	return filteredSlice
+}
+
 func Map(objectToMap []interface{}, mapFunction func(interface{}) interface{}) []interface{} {
 	var mappedObj []interface{}
 

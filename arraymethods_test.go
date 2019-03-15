@@ -10,6 +10,18 @@ func TestFilterInts(t *testing.T) {
 	})
 
 	if len(filteredSlice) != 2 {
-		t.Errorf("Slice size was incorrect, got: %d, want: %d.", len(filteredSlice), 2)
+		t.Errorf("Slice size was incorrect, got: %d, want: %d... :-(", len(filteredSlice), 2)
+	}
+}
+
+func TestFilterStrings(t *testing.T) {
+	arrayToFilter := [5]string{"cat", "dog", "horse", "dinosaur", "bird"}
+
+	filteredSlice := FilterStrings(arrayToFilter[:], func(item string) bool {
+		return (string(item[0]) == "d")
+	})
+
+	if len(filteredSlice) != 2 {
+		t.Errorf("Slice size was incorrect, got: %d, want: %d... :-(", len(filteredSlice), 2)
 	}
 }
