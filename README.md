@@ -1,3 +1,5 @@
-# JSON Array methods
+# Array methods
 
-Still have to define what I am trying to do here...
+A package to loop through containers (mostly arrays) and execute things.
+
+Examples of methods are: Filter, Map, etc.
