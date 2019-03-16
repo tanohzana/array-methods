@@ -24,12 +24,14 @@ func FilterStrings(sliceToFilter []string, filterFunc func(string) bool) []strin
 	return filteredSlice
 }
 
-func Map(objectToMap []interface{}, mapFunction func(interface{}) interface{}) []interface{} {
-	var mappedObj []interface{}
+func FilterJSON(sliceToFilter []map[string]interface{}, filterFunc func(item map[string]interface{}) bool) []map[string]interface{} {
+	var filteredArray []map[string]interface{}
 
-	for key, value := range objectToMap {
-		mappedObj[key] = mapFunction(value)
+	for i := 0; i < len(sliceToFilter); i++ {
+		if filterFunc(sliceToFilter[i]) {
+			filteredArray = append(filteredArray, sliceToFilter[i])
+		}
 	}
 
-	return mappedObj
+	return filteredArray
 }
