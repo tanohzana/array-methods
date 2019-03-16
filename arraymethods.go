@@ -1,5 +1,6 @@
 package arraymethods
 
+// FilterInts allows to loop on int slices and filter them according to the function passed in argument
 func FilterInts(objToFilter []int, f func(int) bool) []int {
 	var filteredSlice []int
 
@@ -12,6 +13,7 @@ func FilterInts(objToFilter []int, f func(int) bool) []int {
 	return filteredSlice
 }
 
+// FilterStrings allows to loop on string slices and filter them according to the function passed in argument
 func FilterStrings(sliceToFilter []string, filterFunc func(string) bool) []string {
 	var filteredSlice []string
 
@@ -24,6 +26,7 @@ func FilterStrings(sliceToFilter []string, filterFunc func(string) bool) []strin
 	return filteredSlice
 }
 
+// FilterJSON allows to loop on JSON (map[string]interface{}) slices and filter them according to the function passed in argument
 func FilterJSON(sliceToFilter []map[string]interface{}, filterFunc func(item map[string]interface{}) bool) []map[string]interface{} {
 	var filteredArray []map[string]interface{}
 
