@@ -38,3 +38,13 @@ func FilterJSON(sliceToFilter []map[string]interface{}, filterFunc func(item map
 
 	return filteredArray
 }
+
+func MapInts(sliceToMap []int, mappingFunc func(int) int) []int {
+	var mappedInts []int
+
+	for i := 0; i < len(sliceToMap); i++ {
+		mappedInts = append(mappedInts, mappingFunc(sliceToMap[i]))
+	}
+
+	return mappedInts
+}
