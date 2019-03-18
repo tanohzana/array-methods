@@ -1,10 +1,6 @@
 package arraymethods
 
 import (
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
-	"os"
 	"strconv"
 	"testing"
 )
@@ -35,9 +31,9 @@ func TestFilterStrings(t *testing.T) {
 
 func TestFilterJson(t *testing.T) {
 	expectedLength := 1
-	jsonContent1 := loadJSONAsMap("./test_utils/jsonTestFile1.json")
-	jsonContent2 := loadJSONAsMap("./test_utils/jsonTestFile2.json")
-	jsonContent3 := loadJSONAsMap("./test_utils/jsonTestFile3.json")
+	jsonContent1 := LoadJSONAsMap("./test_utils/jsonTestFile1.json")
+	jsonContent2 := LoadJSONAsMap("./test_utils/jsonTestFile2.json")
+	jsonContent3 := LoadJSONAsMap("./test_utils/jsonTestFile3.json")
 
 	jsonArray := [3]map[string]interface{}{jsonContent1, jsonContent2, jsonContent3}
 
@@ -56,22 +52,4 @@ func TestFilterJson(t *testing.T) {
 	if len(filteredJSONArray) != expectedLength {
 		t.Errorf("Expected %d, but got: %d", expectedLength, len(filteredJSONArray))
 	}
-}
-
-func loadJSONAsMap(filePath string) map[string]interface{} {
-	jsonFile, err := os.Open(filePath)
-
-	if err != nil {
-		fmt.Println("Json file loading failed: ", err)
-	}
-
-	defer jsonFile.Close()
-
-	byteValue, _ := ioutil.ReadAll(jsonFile)
-
-	var result map[string]interface{}
-
-	json.Unmarshal([]byte(byteValue), &result)
-
-	return result
 }
