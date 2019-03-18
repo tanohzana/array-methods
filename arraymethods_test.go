@@ -53,3 +53,18 @@ func TestFilterJson(t *testing.T) {
 		t.Errorf("Expected %d, but got: %d", expectedLength, len(filteredJSONArray))
 	}
 }
+
+func TestMapInts(t *testing.T) {
+	expectedArray := [5]int{2, 4, 6, 8, 10}
+	intsArray := [5]int{1, 2, 3, 4, 5}
+
+	mappedArray := MapInts(intsArray[:], func(entry int) int {
+		return 2 * entry
+	})
+
+	for i := 0; i < len(expectedArray); i++ {
+		if expectedArray[i] != mappedArray[i] {
+			t.Errorf("Expected %d, but got %d, in position %d", expectedArray[i], mappedArray[i], i)
+		}
+	}
+}

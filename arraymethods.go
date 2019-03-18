@@ -39,6 +39,7 @@ func FilterJSON(sliceToFilter []map[string]interface{}, filterFunc func(item map
 	return filteredArray
 }
 
+// MapInts take a slice of ints in parameter and return a slice of mapped ints from the mapping function passed in parameter
 func MapInts(sliceToMap []int, mappingFunc func(int) int) []int {
 	var mappedInts []int
 
