@@ -1,7 +1,5 @@
 package arraymethods
 
-import "fmt"
-
 // FilterInts allows to loop on int slices and filter them according to the function passed in argument
 func FilterInts(objToFilter []int, f func(int) bool) []int {
 	var filteredSlice []int
@@ -50,11 +48,4 @@ func MapInts(sliceToMap []int, mappingFunc func(int) int) []int {
 	}
 
 	return mappedInts
-}
-
-// MapJSON receives a collection of JSON objects as map[string]interface{}, maps elements through the function passed in argument, and returns it
-func MapJSON(sliceToMap []map[string]interface{}, mappingFunc func(entry map[string]interface{})) []map[string]interface{} {
-	// Implement mapping function
-	fmt.Println("This is not implemented yet.")
-	return sliceToMap
 }
